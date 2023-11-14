@@ -50,6 +50,7 @@ const updateProduct = async (req, res) => {
             const buscarProvider = await Provider.find({company_name: req.body.provider});
             if ( buscarProvider.length === 0) {
                 res.status(400).json({message: `ERROR: El proveedor intorducido no existe`})
+                return
             } else {
                 const productoEditado = {
                     title,
